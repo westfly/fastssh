@@ -1,0 +1,86 @@
+#bs old
+fake_user@10.192.24.117
+#bs a
+fake_user@10.192.60.72
+fake_user@10.192.21.121
+fake_user@10.192.115.72
+fake_user@10.192.17.51
+#bs b
+fake_user@10.192.28.101
+fake_user@10.192.60.73
+fake_user@10.192.115.73
+fake_user@10.192.17.53
+#bs little
+fake_user@10.192.17.52
+fake_user@10.192.115.74
+fake_user@10.192.17.54
+fake_user@10.192.32.23
+fake_user@10.192.29.116
+#ngnixserver
+root@10.192.84.27	ngnixserver1
+root@10.192.24.74	ngnixserver2
+root@10.192.24.75	ngnixserver3
+root@10.192.24.76	ngnixserver4
+root@10.192.41.50	ngnixserver5
+root@10.192.104.82	ngnixserver6
+root@10.149.45.72	test_ngnixserver
+#material ring0
+fake_user@10.192.81.108
+fake_user@10.192.41.102
+fake_user@10.192.41.103
+#material ring1
+fake_user@10.192.81.109
+fake_user@10.192.41.104
+fake_user@10.192.41.105
+#material ring2
+fake_user@10.192.81.110
+fake_user@10.192.41.106
+fake_user@10.192.41.107
+#material ring3
+fake_user@10.192.81.115
+fake_user@10.192.41.108
+fake_user@10.192.35.20
+#material ring4
+fake_user@10.192.107.37
+fake_user@10.192.41.96
+fake_user@10.192.41.125
+#bayfront
+fake_user@10.192.32.23
+fake_user@10.192.29.116
+#realrank
+fake_user@10.192.108.98
+fake_user@10.192.108.99
+#showq
+fake_user@10.192.108.109
+fake_user@10.192.108.110
+#verify
+fake_user@10.192.101.38	verify
+root@10.11.201.51	verify
+#testing
+fake_user@10.192.109.36	test
+root@10.192.34.121	qatest
+root@10.192.40.103	qatest
+root@10.192.12.127  qatestrs
+root@10.136.20.27	qatestrs
+root@10.136.36.7  qatestqs
+westfly@10.192.44.55	tred6
+root@10.192.45.72	ut
+#net
+westfly@10.11.209.81	net
+#s3
+fake_user@10.192.37.113
+fake_user@10.192.37.114
+fake_user@10.192.37.79
+fake_user@10.192.37.80
+root@10.11.192.124	xudong
+#s1/s2
+root@10.192.56.52
+root@10.192.49.41
+root@10.192.56.56
+root@10.192.56.57
+root@10.192.49.39
+root@10.192.36.31
+root@10.192.42.88
+root@10.192.49.37
+root@10.136.28.31	kpi
+#location

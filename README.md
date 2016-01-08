@@ -8,6 +8,19 @@ fastssh 是一个快速登录内网机器的shell封装，比较实用，需要�
 
 应用场景是在内网登录机器的时候，避免输入全部的ip地址，或者可以定义别名，避免记忆ip地址。
 节省您宝贵的时间。
+安装
+---
+编译sshpass，如果没有root权限，自己编译一个放在mlogin目录下即可
+
+进入 your_install_path/mlogin，修改
+```
+  deploy="/your_install_path/mlogin" 
+  password_list="youpasslist"      #定制通用密码，作为轮询用
+```
+install_path添加到.bashrc中。
+```
+  export PATH=$PATH:your_install_path/mlogin_
+```
 
 用法
 ---

@@ -1,4 +1,8 @@
-machine_data="/search/odin/github/devbin/machine.dat"
+#!/usr/bin/env bash
+#author : yweiyun@gmail.com
+deploy="/tmp/mlogin"
+password_list="op"
+machine_data="$deploy/machine.dat"
 #用于便捷的登陆机器，一个简单的封装
 function get_machine_list_multi()
 {
@@ -31,6 +35,39 @@ function get_machine_list_single()
                 }' $machine_data)
     echo $ip_candidate
 }
+function get_ssh_param()
+{
+    local host_name=$1
+    local user_name=$2
+    if [[ -z $user_name ]]; then
+        echo "$host_name  -o StrictHostKeyChecking=no"
+    else
+        echo "$host_name -l $user_name  -o StrictHostKeyChecking=no"
+    fi
+}
+function passless_login_wrapper()
+{
+    local host=$1
+    local user=$2
+    ssh -f $(get_ssh_param $host $user)
+    if [[ $? -eq 0 ]]; then
+        echo "success"
+        exit
+    fi
+    sshpass_login $host $user
+}
+function sshpass_login()
+{
+    local host=$1
+    local user=$2
+    for passwd in ${password_list[*]}
+    do
+        $deploy/sshpass -p $passwd ssh $(get_ssh_param $host $user)
+        if [[ $? -eq 0 ]]; then
+            exit
+        fi
+    done
+}
 function match_wrapper()
 {
     local machine="$1"
@@ -43,7 +80,7 @@ function match_wrapper()
       ip_candidate=$(get_machine_list_single $machine $num)
     fi
     if [[ -z $ip_candidate ]]; then
-      return -1
+      return 1
     fi
     arr=($ip_candidate)
     #len=${#ip_candidate[@]}
@@ -62,10 +99,13 @@ function match_wrapper()
     login_host=${arr[$count]}
     if [[ ${#user} -gt 0 && "$login_host" =~ "@" ]]; then
       host=${login_host#*@}
-      ssh $host -l $user
+      #ssh $host -l $user
+      passless_login_wrapper $host $user
     else
-      ssh ${arr[$count]}
+      #ssh ${arr[$count]}
+      passless_login_wrapper ${arr[$count]}
     fi
+    return 0
 }
 #set -x
 pattern=$1

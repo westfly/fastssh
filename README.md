@@ -17,6 +17,12 @@ fastssh 是一个快速登录内网机器的shell封装，比较实用，需要�
   deploy="/your_install_path/fastssh" 
   password_list="youpasslist"      #定制通用密码，作为轮询用
 ```
+定制你的machine.dat，配置dat文件格式示例
+```
+ #ngix 注释
+ fake_user@10.130.134.116 nginx
+ 默认用户名 机器       别名
+```
 install_path添加到.bashrc中。
 ```
   export PATH=$PATH:your_install_path/fastssh_
